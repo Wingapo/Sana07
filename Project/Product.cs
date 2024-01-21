@@ -4,7 +4,7 @@
     {
         public string Name { get; protected set; }
         public double Price { get; protected set; }
-        public int Count { get; protected set; }
+        public int Count { get; set; }
 
         public Product()
         {
@@ -25,5 +25,18 @@
         }
 
         public abstract string Display();
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Product product &&
+                   Name == product.Name &&
+                   Price == product.Price &&
+                   Count == product.Count;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, Price, Count);
+        }
     }
 }

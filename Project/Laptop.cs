@@ -20,5 +20,17 @@
         {
             return $"{Producer}, {Name}, {Price}, {Count}";
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Laptop laptop &&
+                   base.Equals(obj) &&
+                   Producer == laptop.Producer;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(base.GetHashCode(), Producer);
+        }
     }
 }

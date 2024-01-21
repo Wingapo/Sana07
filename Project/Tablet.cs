@@ -19,5 +19,17 @@
         {
             return $"{Name}, {Diagonal}, {Price}, {Count}";
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Tablet tablet &&
+                   base.Equals(obj) &&
+                   Diagonal == tablet.Diagonal;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(base.GetHashCode(), Diagonal);
+        }
     }
 }

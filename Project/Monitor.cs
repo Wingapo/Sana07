@@ -19,5 +19,17 @@
         {
             return $"{Name}, {Matrix}, {Price}, {Count}";
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Monitor monitor &&
+                   base.Equals(obj) &&
+                   Matrix == monitor.Matrix;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(base.GetHashCode(), Matrix);
+        }
     }
 }
