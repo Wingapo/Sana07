@@ -15,8 +15,8 @@
 
         protected Product(string name, double price, int count)
         {
-            if (name == null) throw new ArgumentNullException();
-            if (name.Length == 0) throw new ArgumentException("name cannot be empty");
+            if (name == null) throw new ArgumentNullException(nameof(name));
+            if (name.Length == 0) throw new ArgumentException("name cannot be empty", nameof(name));
             Name = name;
             if (price < 0) throw new ArgumentOutOfRangeException(nameof(price));
             Price = price;

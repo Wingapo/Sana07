@@ -11,7 +11,7 @@
 
         public Laptop(string producer, string name, double price, int count) : base(name, price, count)
         {
-            if (producer == null) throw new ArgumentNullException();
+            if (producer == null) throw new ArgumentNullException(nameof(producer));
             if (producer.Length == 0) throw new ArgumentException("producer name cannot be empty");
             Producer = producer;
         }
