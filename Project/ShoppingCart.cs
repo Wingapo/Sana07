@@ -12,7 +12,6 @@
         public void Add(Product product)
         {
             if (product == null) throw new ArgumentNullException(nameof(product));
-            if (Products.Contains(product)) product.Count++;
             Products.Add(product);
         }
 

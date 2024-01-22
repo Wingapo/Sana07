@@ -30,13 +30,12 @@
         {
             return obj is Product product &&
                    Name == product.Name &&
-                   Price == product.Price &&
-                   Count == product.Count;
+                   Price == product.Price;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Name, Price, Count);
+            return HashCode.Combine(Name, Price);
         }
     }
 }
